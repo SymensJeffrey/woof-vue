@@ -4,8 +4,17 @@
     <div v-for="puppy in puppies">
       <p> {{ puppy.id }} </p>
       <p> {{ puppy.name }} </p>
+      <button v-on:click="showPuppy(puppy)">More info</button>
       <p>--------------------------------------------------</p>
     </div>
+      <dialog id="puppy-info">
+        <form method="dialog">
+          <h1> {{ currentPuppy.name }} </h1>
+          <p> {{ currentPuppy.age }} </p>
+          <p> {{ currentPuppy.breed }} </p>
+          <button>Close</button>
+        </form>
+      </dialog>
   </div>
 </template>
 <style></style>
@@ -15,7 +24,8 @@ export default {
   data: function() {
     return {
       message: "Look at all the Puppies",
-      puppies: []
+      puppies: [],
+      currentPuppy: {},
     };
   },
   created: function() {
@@ -29,6 +39,11 @@ export default {
       this.puppies = response.data;
       }) ;
     },
-  }
+    showPuppy: function (puppy) {
+      console.log("showing puppy...");
+      this.currentPuppy = puppy;
+      document.querySelector("#puppy-info").showModal();
+    },
+  },
 };
 </script>
