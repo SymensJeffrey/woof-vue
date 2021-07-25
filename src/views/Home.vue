@@ -5,6 +5,7 @@
       <p> {{ puppy.id }} </p>
       <p> {{ puppy.name }} </p>
       <button v-on:click="showPuppy(puppy)">More info</button>
+      <a v-bind:href="`/puppies/${puppy.id}/edit`">   Edit </a> 
       <p>--------------------------------------------------</p>
     </div>
       <dialog id="puppy-info">

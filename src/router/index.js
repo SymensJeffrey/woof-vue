@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import CreatePuppy from '../views/createPuppy.vue'
+import editPuppy from '../views/editPuppy.vue'
 
 Vue.use(VueRouter)
 
@@ -23,6 +24,11 @@ const routes = [
     path: '/createPuppy',
     name: 'CreatePuppy',
     component: CreatePuppy
+  },
+  {
+    path: '/puppies/:id/edit',
+    name: 'editPuppy',
+    component: editPuppy
   }
 ]
 
